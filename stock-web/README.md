@@ -5,7 +5,7 @@ This is the Stock service
 Generated with
 
 ```
-micro new github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv --namespace=go.micro.secbuy --alias=stock --type=srv
+micro new stock-web --namespace=go.micro.secbuy --alias=stock --type=web
 ```
 
 ## Getting Started
@@ -16,8 +16,8 @@ micro new github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv --namespace=go.micr
 
 ## Configuration
 
-- FQDN: go.micro.secbuy.srv.stock
-- Type: srv
+- FQDN: go.micro.secbuy.web.stock
+- Type: web
 - Alias: stock
 
 ## Dependencies
@@ -46,19 +46,10 @@ make build
 
 Run the service
 ```
-./stock-srv
+./stock-web
 ```
 
 Build a docker image
 ```
 make docker
-```
-
-## Test
-```
- micro --registry=mdns call go.micro.secbuy.srv.stock StockService.CreateCommodity '{"name":"商品","count":10,"sale":0}'
-```
-
-```
-micro --registry=mdns call go.micro.secbuy.srv.stock StockService.GetCommodity '{"Id":5}'
 ```

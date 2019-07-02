@@ -65,6 +65,8 @@ func (s *service) CreateCommodity(commodity *proto.Commodity) error {
 		Sale:  commodity.GetSale(),
 	}
 	o.Create(&model)
+	commodity.Id = model.ID
+	commodity.CreateTime = model.CreateTime.Format("2006-01-02T15:04:05")
 	return nil
 }
 
@@ -72,14 +74,16 @@ func (s *service) QueryCommodityByID(id int32) (*proto.Commodity, error) {
 	o := db.GetDB()
 
 	model := &stockModel{}
-	o.Where("id = ?", id).First(model)
-	fmt.Println(model.CreateTime.Local(), model.CreateTime.UTC())
+	if err := o.Where("id = ?", id).First(model).Error; err != nil {
+		return nil, err
+	}
+
 	commodity := &proto.Commodity{
 		Id:         model.ID,
 		Name:       model.Name,
 		Count:      model.Count,
 		Sale:       model.Sale,
-		CreateTime: model.CreateTime.Format("2006-01-02T15:04:05Z07:00"),
+		CreateTime: model.CreateTime.Format("2006-01-02T15:04:05"),
 	}
 
 	return commodity, nil

@@ -45,7 +45,7 @@ func (e *Stock) GetCommodity(ctx context.Context, req *stock.GetRequest, rsp *st
 			Code:   404,
 			Detail: err.Error(),
 		}
-		return err
+		return nil
 	}
 
 	rsp.Success = true
