@@ -1,0 +1,7 @@
+app:
+  postgre:
+    enabled: true
+    host: 127.0.0.1
+    dbname: fastbuy
+    user: fastbuy
+    Password: fastbuy123
