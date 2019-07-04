@@ -54,6 +54,13 @@ Build a docker image
 make docker
 ```
 
+
+## prepare
+```
+go get -u github.com/micro/protoc-gen-micro
+```
+
+
 ## Test
 ```
  micro --registry=mdns call go.micro.secbuy.srv.stock StockService.CreateCommodity '{"name":"商品","count":10,"sale":0}'

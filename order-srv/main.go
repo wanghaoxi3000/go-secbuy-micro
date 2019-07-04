@@ -5,9 +5,9 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model"
 	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/handler"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/model"
 	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
 )
 
@@ -17,7 +17,7 @@ func main() {
 
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.secbuy.srv.stock"),
+		micro.Name("go.micro.secbuy.srv.order"),
 		micro.Version("latest"),
 	)
 

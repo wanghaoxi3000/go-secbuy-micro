@@ -4,12 +4,12 @@ GOPATH:=$(shell go env GOPATH)
 
 .PHONY: proto
 proto:
-	protoc --proto_path=${GOPATH}/src:. --micro_out=. --go_out=. proto/stock/stock.proto
+	protoc --proto_path=. --micro_out=. --go_out=. proto/order/order.proto
 
 .PHONY: build
 build: proto
 
-	go build -o stock-srv main.go plugin.go
+	go build -o order-srv main.go plugin.go
 
 .PHONY: test
 test:
@@ -17,4 +17,4 @@ test:
 
 .PHONY: docker
 docker:
-	docker build . -t stock-srv:latest
+	docker build . -t order-srv:latest

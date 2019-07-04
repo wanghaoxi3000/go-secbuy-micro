@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/db"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	proto "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
 )
 
 var (
@@ -14,26 +14,19 @@ var (
 	m sync.RWMutex
 )
 
-// Service 仓库服务类
-type Service interface {
-	CreateCommodity(commodity *proto.Commodity) (err error)
-	QueryCommodityByID(id int32) (ret *proto.Commodity, err error) // QueryCommodityByID 根据ID获取商品信息
+// OrderService 订单服务
+type OrderService interface {
+	CreateOrder(int32) proto.Order error
 }
 
-// service 服务
 type service struct {
 }
 
-type stockModel struct {
+type orderModel struct {
 	ID         int32
+	Sid		   int32
 	Name       string
-	Count      int32
-	Sale       int32
 	CreateTime time.Time `gorm:"DEFAULT:now()"`
-}
-
-func (stockModel) TableName() string {
-	return "stock"
 }
 
 // Init 初始化库存服务层
@@ -54,6 +47,10 @@ func GetService() (Service, error) {
 		return nil, fmt.Errorf("[GetService] GetService 未初始化")
 	}
 	return s, nil
+}
+
+func (s *service) CreateOrder() (proto.Order error){
+	
 }
 
 func (s *service) CreateCommodity(commodity *proto.Commodity) error {

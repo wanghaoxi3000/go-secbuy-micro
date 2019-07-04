@@ -4,6 +4,7 @@ package go.micro.secbuy.srv.stock;
 service StockService {
     rpc CreateCommodity (Commodity) returns (Response);
     rpc GetCommodity(GetRequest) returns (Response);
+    rpc Sell(GetRequest) returns (Response);
 }
 
 // 商品

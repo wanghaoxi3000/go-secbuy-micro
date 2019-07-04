@@ -1,0 +1,31 @@
+syntax = "proto3";
+package go.micro.secbuy.srv.order;
+
+service  {
+    rpc CreateOrder (GetRequest) returns (Response);
+}
+
+// 购买商品 ID
+message GetRequest {
+    int32 id = 1;
+}
+
+// 结果
+message Response {
+    bool success = 1;
+    Error error = 2;
+    Order order = 3;
+}
+
+// 错误信息
+message Error {
+    int32 code = 1;
+    string detail = 2;
+}
+
+// 订单信息
+message Order {
+    int32 id = 1;
+    string name = 2;
+    string createTime = 3;
+}

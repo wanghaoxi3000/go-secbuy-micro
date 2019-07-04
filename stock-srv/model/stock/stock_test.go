@@ -3,7 +3,7 @@ package stock
 import (
 	"testing"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
 	proto "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
 )
 

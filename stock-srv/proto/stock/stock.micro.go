@@ -36,6 +36,7 @@ var _ server.Option
 type StockService interface {
 	CreateCommodity(ctx context.Context, in *Commodity, opts ...client.CallOption) (*Response, error)
 	GetCommodity(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error)
+	Sell(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error)
 }
 
 type stockService struct {
@@ -76,17 +77,29 @@ func (c *stockService) GetCommodity(ctx context.Context, in *GetRequest, opts ..
 	return out, nil
 }
 
+func (c *stockService) Sell(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "StockService.Sell", in)
+	out := new(Response)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for StockService service
 
 type StockServiceHandler interface {
 	CreateCommodity(context.Context, *Commodity, *Response) error
 	GetCommodity(context.Context, *GetRequest, *Response) error
+	Sell(context.Context, *GetRequest, *Response) error
 }
 
 func RegisterStockServiceHandler(s server.Server, hdlr StockServiceHandler, opts ...server.HandlerOption) error {
 	type stockService interface {
 		CreateCommodity(ctx context.Context, in *Commodity, out *Response) error
 		GetCommodity(ctx context.Context, in *GetRequest, out *Response) error
+		Sell(ctx context.Context, in *GetRequest, out *Response) error
 	}
 	type StockService struct {
 		stockService
@@ -105,4 +118,8 @@ func (h *stockServiceHandler) CreateCommodity(ctx context.Context, in *Commodity
 
 func (h *stockServiceHandler) GetCommodity(ctx context.Context, in *GetRequest, out *Response) error {
 	return h.StockServiceHandler.GetCommodity(ctx, in, out)
+}
+
+func (h *stockServiceHandler) Sell(ctx context.Context, in *GetRequest, out *Response) error {
+	return h.StockServiceHandler.Sell(ctx, in, out)
 }
