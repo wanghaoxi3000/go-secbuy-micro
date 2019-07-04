@@ -5,7 +5,7 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
 	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/handler"
 	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/model"
 	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"

@@ -1,16 +1,16 @@
 package basic
 
 import (
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/config"
+	config2 "github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
 	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/db"
 )
 
 func Init() {
-	config.Init()
+	config2.Init()
 	db.Init()
 }
 
 func InitSpeciyConfig(path string) {
-	config.InitSpecifyFile(path)
+	config2.InitSpecifyFile(path)
 	db.Init()
 }

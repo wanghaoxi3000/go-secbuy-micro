@@ -2,12 +2,11 @@ package db
 
 import (
 	"fmt"
+	config2 "github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
 	"sync"
 
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/util/log"
-
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/config"
 )
 
 var (
@@ -30,7 +29,7 @@ func Init() {
 	}
 
 	// 如果配置声明使用mysql
-	if config.GetPostgreConfig().GetEnabled() {
+	if config2.GetPostgreConfig().GetEnabled() {
 		db = initPostgre()
 	}
 

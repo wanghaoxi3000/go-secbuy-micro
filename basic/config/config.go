@@ -20,7 +20,7 @@ var (
 	defaultRootPath         = "app"
 	defaultConfigFilePrefix = "application-"
 	profiles                defaultProfiles
-	postgreConfig           defaultPostgreConfig
+	postgresConfig          defaultPostgresConfig
 	m                       sync.RWMutex
 	inited                  bool
 	sp                      = string(filepath.Separator)
@@ -38,7 +38,7 @@ func Init() {
 
 	// 加载yml配置
 	// 先加载基础配置
-	appPath, _ := filepath.Abs(filepath.Dir(filepath.Join("."+sp, sp)))
+	appPath, _ := filepath.Abs(filepath.Dir(filepath.Join("./", string(filepath.Separator))))
 
 	pt := filepath.Join(appPath, "conf")
 	os.Chdir(appPath)
@@ -75,7 +75,7 @@ func Init() {
 	}
 
 	// 赋值
-	config.Get(defaultRootPath, "postgre").Scan(&postgreConfig)
+	config.Get(defaultRootPath, "postgres").Scan(&postgresConfig)
 
 	// 标记已经初始化
 	inited = true
@@ -128,13 +128,13 @@ func InitSpecifyFile(path string) {
 	}
 
 	// 赋值
-	config.Get(defaultRootPath, "postgre").Scan(&postgreConfig)
+	config.Get(defaultRootPath, "postgre").Scan(&postgresConfig)
 
 	// 标记已经初始化
 	inited = true
 }
 
-// GetPostgreConfig 获取 Postgre 配置
-func GetPostgreConfig() (ret PostgreConfig) {
-	return postgreConfig
+// GetPostgresConfig 获取 Postgres 配置
+func GetPostgresConfig() (ret PostgresConfig) {
+	return postgresConfig
 }

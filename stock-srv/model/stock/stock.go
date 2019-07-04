@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/db"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
 	proto "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
 )
 

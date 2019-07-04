@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
+
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/util/log"
-
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/basic/config"
 )
 
 var (
@@ -30,8 +30,8 @@ func Init() {
 	}
 
 	// 如果配置声明使用mysql
-	if config.GetPostgreConfig().GetEnabled() {
-		db = initPostgre()
+	if config.GetPostgresConfig().GetEnabled() {
+		db = initPostgres()
 	}
 
 	inited = true

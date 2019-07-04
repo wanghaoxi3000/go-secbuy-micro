@@ -1,7 +1,7 @@
 package config
 
-// PostgreConfig Postgre 配置 接口
-type PostgreConfig interface {
+// PostgresConfig Postgre 配置 接口
+type PostgresConfig interface {
 	GetEnabled() bool
 	GetHost() string
 	GetPort() int
@@ -10,8 +10,8 @@ type PostgreConfig interface {
 	GetPassword() string
 }
 
-// postgre 配置
-type defaultPostgreConfig struct {
+// defaultPostgresConfig postgres 配置
+type defaultPostgresConfig struct {
 	Enable   bool   `json:"enabled"`
 	Host     string `json:"host"`
 	Port     int    `json:"port"`
@@ -21,31 +21,31 @@ type defaultPostgreConfig struct {
 }
 
 // Enabled 激活
-func (m defaultPostgreConfig) GetEnabled() bool {
+func (m defaultPostgresConfig) GetEnabled() bool {
 	return m.Enable
 }
 
 // GetHost host 主机名
-func (m defaultPostgreConfig) GetHost() string {
+func (m defaultPostgresConfig) GetHost() string {
 	return m.Host
 }
 
 // GetPort 连接端口
-func (m defaultPostgreConfig) GetPort() int {
+func (m defaultPostgresConfig) GetPort() int {
 	return m.Port
 }
 
 // GetDBname 数据库名称
-func (m defaultPostgreConfig) GetDBname() string {
+func (m defaultPostgresConfig) GetDBname() string {
 	return m.DBname
 }
 
 // GetUser 用户名
-func (m defaultPostgreConfig) GetUser() string {
+func (m defaultPostgresConfig) GetUser() string {
 	return m.User
 }
 
 // GetDBname 密码
-func (m defaultPostgreConfig) GetPassword() string {
+func (m defaultPostgresConfig) GetPassword() string {
 	return m.Password
 }
