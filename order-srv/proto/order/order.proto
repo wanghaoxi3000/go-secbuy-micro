@@ -1,7 +1,7 @@
 syntax = "proto3";
 package go.micro.secbuy.srv.order;
 
-service  {
+service OrderService  {
     rpc CreateOrder (GetRequest) returns (Response);
 }
 

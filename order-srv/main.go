@@ -6,9 +6,9 @@ import (
 	"github.com/micro/go-micro/util/log"
 
 	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/handler"
 	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/handler"
-	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
 	)
 
 	// Register Handler
-	stock.RegisterStockServiceHandler(service.Server(), new(handler.Stock))
+	order.RegisterOrderServiceHandler(service.Server(), new(handler.Order))
 
 	// Run service
 	if err := service.Run(); err != nil {

@@ -1,3 +1,3 @@
 FROM alpine
-ADD stock-srv /stock-srv
-ENTRYPOINT [ "/stock-srv" ]
+ADD order-srv /order-srv
+ENTRYPOINT [ "/order-srv" ]

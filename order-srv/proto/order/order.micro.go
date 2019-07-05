@@ -31,32 +31,32 @@ var _ context.Context
 var _ client.Option
 var _ server.Option
 
-// Client API for StockService service
+// Client API for OrderService service
 
-type StockService interface {
+type OrderService interface {
 	CreateOrder(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error)
 }
 
-type stockService struct {
+type orderService struct {
 	c    client.Client
 	name string
 }
 
-func NewStockService(name string, c client.Client) StockService {
+func NewOrderService(name string, c client.Client) OrderService {
 	if c == nil {
 		c = client.NewClient()
 	}
 	if len(name) == 0 {
 		name = "go.micro.secbuy.srv.order"
 	}
-	return &stockService{
+	return &orderService{
 		c:    c,
 		name: name,
 	}
 }
 
-func (c *stockService) CreateOrder(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error) {
-	req := c.c.NewRequest(c.name, "StockService.CreateOrder", in)
+func (c *orderService) CreateOrder(ctx context.Context, in *GetRequest, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "OrderService.CreateOrder", in)
 	out := new(Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -65,27 +65,27 @@ func (c *stockService) CreateOrder(ctx context.Context, in *GetRequest, opts ...
 	return out, nil
 }
 
-// Server API for StockService service
+// Server API for OrderService service
 
-type StockServiceHandler interface {
+type OrderServiceHandler interface {
 	CreateOrder(context.Context, *GetRequest, *Response) error
 }
 
-func RegisterStockServiceHandler(s server.Server, hdlr StockServiceHandler, opts ...server.HandlerOption) error {
-	type stockService interface {
+func RegisterOrderServiceHandler(s server.Server, hdlr OrderServiceHandler, opts ...server.HandlerOption) error {
+	type orderService interface {
 		CreateOrder(ctx context.Context, in *GetRequest, out *Response) error
 	}
-	type StockService struct {
-		stockService
+	type OrderService struct {
+		orderService
 	}
-	h := &stockServiceHandler{hdlr}
-	return s.Handle(s.NewHandler(&StockService{h}, opts...))
+	h := &orderServiceHandler{hdlr}
+	return s.Handle(s.NewHandler(&OrderService{h}, opts...))
 }
 
-type stockServiceHandler struct {
-	StockServiceHandler
+type orderServiceHandler struct {
+	OrderServiceHandler
 }
 
-func (h *stockServiceHandler) CreateOrder(ctx context.Context, in *GetRequest, out *Response) error {
-	return h.StockServiceHandler.CreateOrder(ctx, in, out)
+func (h *orderServiceHandler) CreateOrder(ctx context.Context, in *GetRequest, out *Response) error {
+	return h.OrderServiceHandler.CreateOrder(ctx, in, out)
 }

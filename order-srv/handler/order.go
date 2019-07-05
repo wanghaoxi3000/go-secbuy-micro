@@ -5,50 +5,36 @@ import (
 
 	"github.com/micro/go-micro/util/log"
 
-	modelStock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/model/stock"
-	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model/order"
+	proto "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
 )
 
 var (
-	stockModel modelStock.Service
+	orderModel order.Service
 )
 
-type Stock struct{}
+type Order struct{}
 
 // Init 初始化handler
 func Init() {
 	var err error
-	stockModel, err = modelStock.GetService()
+	orderModel, err = order.GetService()
 	if err != nil {
-		log.Fatal("[Init] 初始化Handler错误")
+		log.Fatalf("[Init] 初始化Handler错误: %s", err.Error())
 		return
 	}
 }
 
-// CreateCommodity 创建商品
-func (e *Stock) CreateCommodity(ctx context.Context, req *stock.Commodity, rsp *stock.Response) error {
-	log.Log("Received Stock.CreateCommodity request")
-	stockModel.CreateCommodity(req)
-	rsp.Success = true
-	rsp.Commodity = req
-	return nil
-}
-
-// GetCommodity 根据 ID 查询商品
-func (e *Stock) GetCommodity(ctx context.Context, req *stock.GetRequest, rsp *stock.Response) error {
-	log.Logf("Received Stock.QueryCommodityByID request with ID: %d", req.Id)
-
-	commodity, err := stockModel.QueryCommodityByID(req.Id)
+// CreateOrder 创建订单
+func (e *Order) CreateOrder(ctx context.Context, req *proto.GetRequest, rsp *proto.Response) error {
+	log.Log("Received Order.CreateOrder request")
+	protoOrder, err := orderModel.CreateOrder(req.Id)
 	if err != nil {
 		rsp.Success = false
-		rsp.Error = &stock.Error{
-			Code:   404,
-			Detail: err.Error(),
-		}
+		rsp.Error = &proto.Error{Code: 400, Detail: err.Error()}
 		return nil
 	}
-
 	rsp.Success = true
-	rsp.Commodity = commodity
+	rsp.Order = protoOrder
 	return nil
 }

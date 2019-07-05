@@ -19,7 +19,7 @@ var (
 type Service interface {
 	CreateCommodity(commodity *proto.Commodity) error
 	QueryCommodityByID(id int32) (*proto.Commodity, error) // QueryCommodityByID 根据ID获取商品信息
-	Sell(id int32) (*proto.Commodity, error)
+	SellCommodityByID(id int32) (*proto.Commodity, error)
 }
 
 // service 服务
@@ -94,7 +94,7 @@ func (s *service) QueryCommodityByID(id int32) (*proto.Commodity, error) {
 }
 
 // Sell 销存
-func (s *service) Sell(id int32) (commodity *proto.Commodity, err error) {
+func (s *service) SellCommodityByID(id int32) (commodity *proto.Commodity, err error) {
 	tx := db.GetDB().Begin()
 	defer func() {
 		if err != nil {
