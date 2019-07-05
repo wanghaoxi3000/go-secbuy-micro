@@ -39,5 +39,8 @@ func Init() {
 
 // GetDB 获取db
 func GetDB() *gorm.DB {
+	if !inited {
+		panic("DB does not init")
+	}
 	return db
 }

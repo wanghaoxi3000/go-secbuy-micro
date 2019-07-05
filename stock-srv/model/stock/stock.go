@@ -6,6 +6,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/micro/go-micro/util/log"
+
 	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
 	proto "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
 )
@@ -95,14 +97,21 @@ func (s *service) QueryCommodityByID(id int32) (*proto.Commodity, error) {
 
 // Sell 销存
 func (s *service) SellCommodityByID(id int32) (commodity *proto.Commodity, err error) {
-	tx := db.GetDB().Begin()
+	o := db.GetDB()
+	model := &stockModel{}
+	if err := o.Where("id = ?", id).First(model).Error; err != nil {
+		return nil, err
+	}
+	log.Logf("Sell %d name %s", model.ID, model.Name)
+
+	tx := o.Begin()
 	defer func() {
 		if err != nil {
 			tx.Rollback()
 		}
 	}()
 
-	model := &stockModel{}
+	model = &stockModel{}
 	err = tx.First(&model, id).Error
 	if err != nil {
 		return

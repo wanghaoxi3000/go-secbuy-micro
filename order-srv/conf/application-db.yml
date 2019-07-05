@@ -1,5 +1,5 @@
 app:
-  postgre:
+  postgres:
     enabled: true
     host: 127.0.0.1
     dbname: fastbuy

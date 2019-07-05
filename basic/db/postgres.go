@@ -11,6 +11,7 @@ import (
 )
 
 func initPostgres() *gorm.DB {
+	log.Logf("[Init] postgres database init")
 	postgresConfig := config.GetPostgresConfig()
 	connConfig := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s",
 		postgresConfig.GetHost(),
