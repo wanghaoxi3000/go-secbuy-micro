@@ -2,6 +2,6 @@ app:
   postgres:
     enabled: true
     host: 127.0.0.1
-    dbname: fastbuy
-    user: fastbuy
-    Password: fastbuy123
+    dbname: secbuy
+    user: dev
+    Password: dbdev123

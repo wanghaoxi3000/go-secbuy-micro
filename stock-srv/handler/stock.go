@@ -53,7 +53,7 @@ func (e *Stock) GetCommodity(ctx context.Context, req *stock.GetRequest, rsp *st
 	return nil
 }
 
-// Sell 根据 ID 查询商品
+// Sell 根据 ID 销存
 func (e *Stock) Sell(ctx context.Context, req *stock.GetRequest, rsp *stock.Response) error {
 	log.Logf("Received Stock.Sell request with ID: %d", req.Id)
 	commodity, err := stockModel.SellCommodityByID(req.Id)

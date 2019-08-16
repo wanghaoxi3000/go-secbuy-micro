@@ -117,7 +117,7 @@ func (s *service) SellCommodityByID(id int32) (commodity *proto.Commodity, err e
 		return
 	}
 
-	if model.Sale > model.Count {
+	if model.Sale >= model.Count {
 		err = errors.New("commodity sales complete")
 		return
 	}
