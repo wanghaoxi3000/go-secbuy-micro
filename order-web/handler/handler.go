@@ -51,9 +51,9 @@ func Sell(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// we want to augment the response
-	log.Logf("sell result: success %v, error: [%v]",
-		rsp.GetSuccess(), rsp.GetError())
+	if !rsp.GetSuccess() {
+		log.Logf("sell fail, code: %d detail: %v", rsp.GetError().Code, string(rsp.GetError().Detail))
+	}
 	response := map[string]interface{}{
 		"success": rsp.GetSuccess(),
 	}

@@ -34,6 +34,7 @@ type stockModel struct {
 	Count      int32
 	Sale       int32
 	CreateTime time.Time `gorm:"DEFAULT:now()"`
+	Version    int32
 }
 
 func (stockModel) TableName() string {
@@ -100,31 +101,25 @@ func (s *service) SellCommodityByID(id int32) (commodity *proto.Commodity, err e
 	o := db.GetDB()
 	model := &stockModel{}
 	if err := o.Where("id = ?", id).First(model).Error; err != nil {
+		log.Logf("Find %d commodity error: %v", id, err)
 		return nil, err
 	}
-	log.Logf("Sell %d name %s", model.ID, model.Name)
+	log.Logf("Sell id: %d name: %s version: %d", model.ID, model.Name, model.Version)
 
-	tx := o.Begin()
-	defer func() {
-		if err != nil {
-			tx.Rollback()
-		}
-	}()
-
-	model = &stockModel{}
-	err = tx.First(&model, id).Error
-	if err != nil {
-		return
-	}
-
-	if model.Sale >= model.Count {
+	model.Sale++
+	if model.Sale > model.Count {
 		err = errors.New("commodity sales complete")
 		return
 	}
 
-	model.Sale++
-	tx.Model(&model).Update("sale", model.Sale)
-	tx.Commit()
+	if row := o.Model(&model).Where("version = ?", model.Version).Updates(
+		map[string]interface{}{
+			"sale":    model.Sale,
+			"version": model.Version + 1,
+		}).RowsAffected; row == 0 {
+		return nil, errors.New("commodity info timeout")
+	}
+
 	commodity = &proto.Commodity{
 		Id:         model.ID,
 		Name:       model.Name,

@@ -8,4 +8,4 @@ CREATE TABLE orders (
 COMMENT ON COLUMN orders.id IS '主键';
 COMMENT ON COLUMN orders.sid IS '库存ID';
 COMMENT ON COLUMN orders.name IS '商品名称';
-COMMENT ON COLUMN stock.create_time IS '创建时间';
+COMMENT ON COLUMN orders.create_time IS '创建时间';
