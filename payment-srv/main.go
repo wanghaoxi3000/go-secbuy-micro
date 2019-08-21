@@ -6,9 +6,9 @@ import (
 	"github.com/micro/go-micro/util/log"
 
 	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/handler"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model"
-	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/handler"
+	"github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/model"
+	payment "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.secbuy.srv.order"),
+		micro.Name("go.micro.secbuy.srv.payment"),
 		micro.Version("latest"),
 	)
 
@@ -32,8 +32,9 @@ func main() {
 	)
 
 	// Register Handler
-	publisher := micro.NewPublisher("payment.payevent", service.Client())
-	order.RegisterOrderServiceHandler(service.Server(), &handler.Order{PaymentPublisher:publisher})
+	paymentHandle := new(handler.Payment)
+	micro.RegisterSubscriber("payment.payevent", service.Server(), paymentHandle.Process)
+	payment.RegisterPaymentServiceHandler(service.Server(), paymentHandle)
 
 	// Run service
 	if err := service.Run(); err != nil {

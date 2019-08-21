@@ -2,18 +2,22 @@ package handler
 
 import (
 	"context"
+	"github.com/micro/go-micro"
 
 	"github.com/micro/go-micro/util/log"
 
 	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model/order"
 	proto "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
+	paymentProto "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
 )
 
 var (
 	orderModel order.Service
 )
 
-type Order struct{}
+type Order struct{
+	PaymentPublisher    micro.Publisher
+}
 
 // Init 初始化handler
 func Init() {
@@ -34,6 +38,8 @@ func (e *Order) CreateOrder(ctx context.Context, req *proto.GetRequest, rsp *pro
 		rsp.Error = &proto.Error{Code: 400, Detail: err.Error()}
 		return nil
 	}
+	log.Logf("[handle] publish create payment message")
+	e.PaymentPublisher.Publish(ctx, &paymentProto.PayEvent{Id: protoOrder.Id, Name: protoOrder.Name})
 	rsp.Success = true
 	rsp.Order = protoOrder
 	return nil

@@ -1,0 +1,34 @@
+syntax = "proto3";
+package go.micro.secbuy.srv.payment;
+
+service PaymentService {
+    rpc PayOrder (Request) returns (Response);
+}
+
+message PayEvent {
+    int32 id = 1;
+    string name = 2;
+    int32 state = 3;
+}
+
+message Payment {
+    int32 id = 1;
+    string name = 2;
+    int32 state = 3;
+    string createTime = 4;
+}
+
+message Request {
+    int32 id = 1;
+}
+
+message Response {
+    bool success = 1;
+    Error error = 2;
+    Payment payment = 3;
+}
+
+message Error {
+    int32 code = 1;
+    string detail = 2;
+}

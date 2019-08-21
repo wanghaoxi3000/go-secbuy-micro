@@ -1,0 +1,7 @@
+app:
+  postgres:
+    enabled: true
+    host: 127.0.0.1
+    dbname: secbuy
+    user: dev
+    Password: dbdev123

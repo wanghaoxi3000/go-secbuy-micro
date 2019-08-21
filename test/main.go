@@ -38,6 +38,7 @@ func buyRequest(lock *sync.RWMutex, ret chan<- bool, url string, reqData []byte)
 		return
 	}
 	if resp.StatusCode != 200 {
+		log.Println("request failed,", resp.StatusCode, ", ", err)
 		ret <- false
 		return
 	}

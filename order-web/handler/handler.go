@@ -47,6 +47,7 @@ func Sell(w http.ResponseWriter, r *http.Request) {
 		Id: id,
 	})
 	if err != nil {
+		log.Logf("create order fail %v", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
