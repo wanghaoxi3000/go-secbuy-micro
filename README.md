@@ -1,6 +1,7 @@
 # Go-Secbuy-Micro
 基于Go-micro微服务的秒杀系统
 
+[系统说明](https://darkreunion.tech/2019/09/seckill-backend-system-base-on-go-micro/)
 
 ## 系统架构
 一个经典的秒杀场景可以分为如下几个步骤
