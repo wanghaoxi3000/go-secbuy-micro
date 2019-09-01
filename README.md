@@ -16,7 +16,7 @@
 
 系统架构：
 
-![framework](https://static.darkreunion.tech/img/picgo/20190901012210.png)
+![framework](./secbuy.jpg)
 
 
 ## 环境准备
