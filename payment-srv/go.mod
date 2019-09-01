@@ -1,4 +1,4 @@
-module github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv
+module github.com/wanghaoxi3000/go-secbuy-micro/payment-srv
 
 go 1.12
 
@@ -9,7 +9,7 @@ require (
 	github.com/micro/cli v0.2.0
 	github.com/micro/go-micro v1.8.3
 	github.com/nats-io/nats-server/v2 v2.0.4 // indirect
-	github.com/wanghaoxi3000/go-secbuy-mirco/basic v0.0.0-00010101000000-000000000000
+	github.com/wanghaoxi3000/go-secbuy-micro/basic v0.0.0-00010101000000-000000000000
 )
 
-replace github.com/wanghaoxi3000/go-secbuy-mirco/basic => ../basic
+replace github.com/wanghaoxi3000/go-secbuy-micro/basic => ../basic

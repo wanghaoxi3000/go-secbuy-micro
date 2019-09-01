@@ -6,9 +6,9 @@ import (
 
 	"github.com/micro/go-micro/util/log"
 
-	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model/order"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
-	paymentProto "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
+	order "github.com/wanghaoxi3000/go-secbuy-micro/order-srv/model/order"
+	proto "github.com/wanghaoxi3000/go-secbuy-micro/order-srv/proto/order"
+	paymentProto "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/proto/payment"
 )
 
 var (

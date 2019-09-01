@@ -5,7 +5,7 @@ This is the Payment web service
 Generated with
 
 ```
-micro new github.com/wanghaoxi3000/go-secbuy-mirco/payment-web --namespace=go.micro.secbuy --alias=payment --type=web
+micro new github.com/wanghaoxi3000/go-secbuy-micro/payment-web --namespace=go.micro.secbuy --alias=payment --type=web
 ```
 
 ## Getting Started

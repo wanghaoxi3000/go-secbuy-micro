@@ -7,7 +7,7 @@ import (
 	"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-micro/web"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/order-web/handler"
+	"github.com/wanghaoxi3000/go-secbuy-micro/order-web/handler"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package basic
 
 import (
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/config"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/db"
 )
 
 // Init 初始化配置，读取默认的配置路径

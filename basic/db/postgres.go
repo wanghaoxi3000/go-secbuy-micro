@@ -7,7 +7,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres" // import the database’s driver
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/config"
 )
 
 func initPostgres() *gorm.DB {

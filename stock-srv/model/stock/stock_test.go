@@ -3,8 +3,8 @@ package stock
 import (
 	"testing"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic"
+	proto "github.com/wanghaoxi3000/go-secbuy-micro/stock-srv/proto/stock"
 )
 
 func TestCreateCommodity(t *testing.T) {

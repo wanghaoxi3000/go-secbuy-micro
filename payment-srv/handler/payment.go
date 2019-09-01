@@ -5,8 +5,8 @@ import (
 
 	"github.com/micro/go-micro/util/log"
 
-	payment "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/model/payment"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
+	payment "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/model/payment"
+	proto "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/proto/payment"
 )
 
 var (
@@ -28,7 +28,7 @@ func Init() {
 // Process 接收创建支付信息消息
 func (e *Payment) Process(ctx context.Context, event *proto.PayEvent) error {
 	log.Log("Received create payment message")
-	if err := paymentService.CreatePayment(event); err!= nil{
+	if err := paymentService.CreatePayment(event); err != nil {
 		return err
 	}
 

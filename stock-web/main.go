@@ -6,7 +6,7 @@ import (
 	"github.com/micro/cli"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/stock-web/handler"
+	"github.com/wanghaoxi3000/go-secbuy-micro/stock-web/handler"
 
 	"github.com/micro/go-micro/web"
 )

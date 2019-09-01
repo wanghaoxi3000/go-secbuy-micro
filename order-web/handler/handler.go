@@ -7,7 +7,7 @@ import (
 
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/util/log"
-	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
+	order "github.com/wanghaoxi3000/go-secbuy-micro/order-srv/proto/order"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/config"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/config"
 
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/util/log"

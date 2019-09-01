@@ -5,7 +5,7 @@ This is the Stock service
 Generated with
 
 ```
-micro new github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv --namespace=go.micro.secbuy --alias=stock --type=srv
+micro new github.com/wanghaoxi3000/go-secbuy-micro/stock-srv --namespace=go.micro.secbuy --alias=stock --type=srv
 ```
 
 ## Getting Started

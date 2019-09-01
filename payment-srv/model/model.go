@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/model/payment"
+	"github.com/wanghaoxi3000/go-secbuy-/payment-srv/model/payment"
 )
 
 // Init 初始化模型层

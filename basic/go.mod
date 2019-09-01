@@ -1,4 +1,4 @@
-module github.com/wanghaoxi3000/go-secbuy-mirco/basic
+module github.com/wanghaoxi3000/go-secbuy-micro/basic
 
 go 1.12
 

@@ -10,9 +10,9 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
-	stockSrv "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/db"
+	proto "github.com/wanghaoxi3000/go-secbuy-micro/order-srv/proto/order"
+	stockSrv "github.com/wanghaoxi3000/go-secbuy-micro/stock-srv/proto/stock"
 )
 
 var (

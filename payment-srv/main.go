@@ -5,10 +5,10 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/handler"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/model"
-	payment "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic"
+	"github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/handler"
+	"github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/model"
+	payment "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/proto/payment"
 )
 
 func main() {

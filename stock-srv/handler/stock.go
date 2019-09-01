@@ -5,8 +5,8 @@ import (
 
 	"github.com/micro/go-micro/util/log"
 
-	modelStock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/model/stock"
-	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
+	modelStock "github.com/wanghaoxi3000/go-secbuy-micro/stock-srv/model/stock"
+	stock "github.com/wanghaoxi3000/go-secbuy-micro/stock-srv/proto/stock"
 )
 
 var (

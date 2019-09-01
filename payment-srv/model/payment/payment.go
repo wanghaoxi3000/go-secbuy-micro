@@ -7,8 +7,8 @@ import (
 
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic/db"
-	proto "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic/db"
+	proto "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/proto/payment"
 )
 
 var (

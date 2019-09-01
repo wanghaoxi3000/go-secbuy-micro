@@ -5,10 +5,10 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/util/log"
 
-	"github.com/wanghaoxi3000/go-secbuy-mirco/basic"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/handler"
-	"github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/model"
-	order "github.com/wanghaoxi3000/go-secbuy-mirco/order-srv/proto/order"
+	"github.com/wanghaoxi3000/go-secbuy-micro/basic"
+	"github.com/wanghaoxi3000/go-secbuy-micro/order-srv/handler"
+	"github.com/wanghaoxi3000/go-secbuy-micro/order-srv/model"
+	order "github.com/wanghaoxi3000/go-secbuy-micro/order-srv/proto/order"
 )
 
 func main() {

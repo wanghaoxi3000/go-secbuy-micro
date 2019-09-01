@@ -7,7 +7,7 @@ import (
 
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/util/log"
-	payment "github.com/wanghaoxi3000/go-secbuy-mirco/payment-srv/proto/payment"
+	payment "github.com/wanghaoxi3000/go-secbuy-micro/payment-srv/proto/payment"
 )
 
 var (

@@ -5,7 +5,7 @@ This is the Order service
 Generated with
 
 ```
-micro new github.com/wanghaoxi3000/go-secbuy-mirco/order-srv --namespace=go.micro.secbuy --alias=order --type=srv
+micro new github.com/wanghaoxi3000/go-secbuy-micro/order-srv --namespace=go.micro.secbuy --alias=order --type=srv
 ```
 
 ## Getting Started
