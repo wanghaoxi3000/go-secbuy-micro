@@ -96,7 +96,7 @@ func (s *service) QueryCommodityByID(id int32) (*proto.Commodity, error) {
 	return commodity, nil
 }
 
-// Sell 销存
+// SellCommodityByID 销存
 func (s *service) SellCommodityByID(id int32) (commodity *proto.Commodity, err error) {
 	o := db.GetDB()
 	model := &stockModel{}

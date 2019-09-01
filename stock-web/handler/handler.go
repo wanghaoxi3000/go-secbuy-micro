@@ -7,7 +7,7 @@ import (
 
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/util/log"
-	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-web/proto/stock"
+	stock "github.com/wanghaoxi3000/go-secbuy-mirco/stock-srv/proto/stock"
 )
 
 var (
